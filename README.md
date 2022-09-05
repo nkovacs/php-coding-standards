@@ -1,8 +1,8 @@
-Mito Yii 2 Coding Standards
+Mito PHP Coding Standards
 ===========================
 
 This repository contains [Mito](https://mito.hu/)'s coding standards
-for Yii 2 based applications.
+for PHP based applications.
 
 ![Code coverage](docs/clover.svg)
 
@@ -11,16 +11,16 @@ Getting the code
 
 You can get code style definition using one of the following methods.
 
-* Clone `hellowearemito/yii2-coding-standards` repository:
+* Clone `hellowearemito/php-coding-standards` repository:
 
 ```
-$ git clone git://github.com/hellowearemito/yii2-coding-standards.git
+$ git clone git://github.com/hellowearemito/php-coding-standards.git
 ```
 
 * Install using [composer](https://getcomposer.org/download/):
 
 ```
-$ composer require mito/yii2-coding-standards:"~2.0.0@beta"
+$ composer require mito/coding-standards:"^3.0"
 ```
 
 PHP_Codesniffer
@@ -47,13 +47,13 @@ For a full description of the rules, see [docs/rules.md](docs/rules.md).
 After CodeSniffer is installed, you can launch it with a custom standard using the following syntax:
 
 ```
-$ ./vendor/bin/phpcs --extensions=php --standard=vendor/mito/yii2-coding-standards/Application .
+$ ./vendor/bin/phpcs --extensions=php --standard=vendor/mito/coding-standards/Application .
 ```
 
 To automatically fix most issues, use phpcbf:
 
 ```
-$ ./vendor/bin/phpcbf --extensions=php --standard=vendor/mito/yii2-coding-standards/Application .
+$ ./vendor/bin/phpcbf --extensions=php --standard=vendor/mito/coding-standards/Application .
 ```
 
 **Warning**: always check phpcbf's output and keep backups. If it breaks your code, you get to keep both pieces.
