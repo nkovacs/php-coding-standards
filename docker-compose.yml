@@ -1,8 +1,100 @@
 version: '3.9'
 services:
-  php:
+  php8.2:
     build:
       context: ./docker
       dockerfile: Dockerfile
+      args:
+        PHP_VER: "8.2"
+        XDEBUG_VER: "3.2.1"
+        DEBIAN_RELEASE: bullseye
+    volumes:
+      - .:/usr/src/app
+
+  php8.1:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile
+      args:
+        PHP_VER: "8.1"
+        XDEBUG_VER: "3.2.1"
+        DEBIAN_RELEASE: bullseye
+    volumes:
+      - .:/usr/src/app
+
+  php8.0:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile
+      args:
+        PHP_VER: "8.0"
+        XDEBUG_VER: "3.2.1"
+        DEBIAN_RELEASE: bullseye
+    volumes:
+      - .:/usr/src/app
+
+  php7.4:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile
+      args:
+        PHP_VER: "7.4"
+        XDEBUG_VER: "3.1.5"
+        DEBIAN_RELEASE: bullseye
+    volumes:
+      - .:/usr/src/app
+
+  php7.3:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile
+      args:
+        PHP_VER: "7.3"
+        XDEBUG_VER: "3.1.5"
+        DEBIAN_RELEASE: bullseye
+    volumes:
+      - .:/usr/src/app
+
+  php7.2:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile
+      args:
+        PHP_VER: "7.2"
+        XDEBUG_VER: "3.1.5"
+        DEBIAN_RELEASE: buster
+    volumes:
+      - .:/usr/src/app
+
+  php7.1:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile
+      args:
+        PHP_VER: "7.1"
+        XDEBUG_VER: "2.9.8"
+        DEBIAN_RELEASE: buster
+    volumes:
+      - .:/usr/src/app
+
+  php7.0:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile
+      args:
+        PHP_VER: "7.0"
+        XDEBUG_VER: "2.8.1"
+        DEBIAN_RELEASE: stretch
+    volumes:
+      - .:/usr/src/app
+
+  php5.6:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile
+      args:
+        PHP_VER: "5.6"
+        XDEBUG_VER: "2.5.5"
+        DEBIAN_RELEASE: stretch
     volumes:
       - .:/usr/src/app

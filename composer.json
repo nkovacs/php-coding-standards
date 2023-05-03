@@ -58,6 +58,9 @@
         }
     },
     "config": {
+        "platform": {
+            "php": "5.6"
+        },
         "allow-plugins": {
             "cweagans/composer-patches": true
         }
