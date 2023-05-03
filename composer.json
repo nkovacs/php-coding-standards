@@ -1,7 +1,11 @@
 {
     "name": "mito/coding-standards",
     "description": "Mito coding standards",
-    "keywords": ["codesniffer", "phpcs", "coding standards"],
+    "keywords": [
+        "codesniffer",
+        "phpcs",
+        "coding standards"
+    ],
     "homepage": "https://mito.hu/",
     "license": "BSD-3-Clause",
     "authors": [
@@ -24,7 +28,8 @@
         "symfony/polyfill-mbstring": "*"
     },
     "require-dev": {
-        "phpunit/phpunit": "^4.0 || ^5.0 || ^6.0 || ^7.0",
+        "cweagans/composer-patches": "^1.7",
+        "phpunit/phpunit": "^4.0",
         "jaschilz/php-coverage-badger": "^2.0"
     },
     "scripts": {
@@ -32,5 +37,29 @@
             "./vendor/bin/phpunit --coverage-clover tests/clover.xml",
             "./vendor/bin/php-coverage-badger tests/clover.xml docs/clover.svg"
         ]
+    },
+    "extra": {
+        "composer-exit-on-patch-failure": true,
+        "patches": {
+            "phpunit/phpunit-mock-objects": {
+                "Fix PHP 7 and 8 compatibility": "./tests/patches/phpunit_mock_objects.patch"
+            },
+            "phpunit/php-file-iterator": {
+                "Fix PHP 8.1 compatibility": "./tests/patches/phpunit_path_file_iterator.patch"
+            },
+            "phpunit/phpunit": {
+                "Fix PHP 7 compatibility": "./tests/patches/phpunit_php7.patch",
+                "Fix PHP 8 compatibility": "./tests/patches/phpunit_php8.patch",
+                "Fix PHP 8.1 compatibility": "./tests/patches/phpunit_php81.patch"
+            },
+            "squizlabs/php_codesniffer": {
+                "Fix PHP 8 compatibility": "./tests/patches/phpcs_php8.patch"
+            }
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "cweagans/composer-patches": true
+        }
     }
 }

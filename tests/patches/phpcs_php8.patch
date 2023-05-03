@@ -1,0 +1,20 @@
+diff --git a/src/Ruleset.php b/src/Ruleset.php
+index f90e7b6d2..27e68c505 100644
+--- a/src/Ruleset.php
++++ b/src/Ruleset.php
+@@ -149,7 +149,14 @@ class Ruleset
+         }
+ 
+         foreach ($standardPaths as $standard) {
+-            $ruleset = @simplexml_load_string(file_get_contents($standard));
++            $ruleset = false;
++            $contents = false;
++            if ($standard !== false) {
++                $contents = file_get_contents($standard);
++            }
++            if ($contents !== false) {
++                $ruleset = @simplexml_load_string($contents);
++            }
+             if ($ruleset !== false) {
+                 $standardName = (string) $ruleset['name'];
+                 if ($this->name !== '') {
